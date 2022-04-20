@@ -1,0 +1,334 @@
+* {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+}
+
+.preloader_wrapper {
+  position: fixed;
+  z-index: 1;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+}
+.preloader_wrapper.hidden {
+  animation: fadeOut 6s forwards ease;
+}
+#preloader_text {
+  position: relative;
+  font-family: "klavika";
+  font-weight: 200;
+  font-style: italic;
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+  overflow: hidden;
+}
+#preloader_text::before{
+  content: '';
+  position: absolute;
+  left: 120%;
+  width: 120%;
+  height: 100%;
+  background: linear-gradient(90deg,transparent 0%, #000 5%, #000 100%);
+  animation: animate 8s linear forwards;
+}
+.preloader {
+  margin-bottom: 2.5rem;
+  animation: bounce 1.8s ease-in-out forwards;
+  animation-iteration-count: 3;
+}
+@keyframes animate {
+  0%{
+    left: -20%;
+  }
+  50%{
+    left: 120%;
+  }
+  100%{
+    left: -20%;
+  }
+}
+@keyframes fadeOut {
+    90%{
+        opacity: 1; 
+    }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@keyframes bounce {
+  10% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(20%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100vw;
+    min-height: 100vh;
+    position: fixed;
+}
+
+.background{
+    position: absolute;
+    height: 100%;
+    width: fit-content;
+    background-position: center;
+    top: 0;
+    bottom: 0;
+
+}
+
+
+h1{
+  position: absolute;
+  color: white;
+  font-family: 'klavika';
+  font-weight: 300;
+  font-size: 2.7rem;
+  text-transform: uppercase;
+  text-decoration:underline;
+  text-decoration-thickness: 2px;
+  letter-spacing: 0.1rem;
+  transition: opacity 1s;
+  
+}
+
+.positionTopLeft{
+top: 0;
+transform: translateY(0);
+left: calc(2rem + 40px);
+}
+.positionTopRight{
+top: 0;
+transform: translateY(0);
+right: calc(2rem + 40px);
+}
+.positionCenterLeft{
+top: 50%;
+transform: translateY(-50%);
+left: calc(2rem + 40px);
+}
+.positionCenterRight{
+top: 50%;
+transform: translateY(-50%);
+right:calc(2rem + 40px);
+}
+.step{
+    position: absolute;
+    bottom: 4rem;
+    left: 2rem;
+    color: white;
+    font-family: 'klavika';
+    font-size: 0.9rem;
+    font-weight: 100;
+    margin-bottom: 3rem;
+}
+.footer{
+  top: 50%;
+  transform: translateY(-50%);
+  left: calc(80%);
+  width: 100%;
+}
+article ul{
+  display: flex;
+  position: absolute;
+  top: calc(40% + 10px);
+  right: calc(2rem + 40px);
+  display: none;
+}
+article ul li {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items:flex-end; 
+  color: white;
+  margin-left: 1rem;
+}
+
+li>span{
+  margin: auto;
+  padding-right: 1rem;
+
+} 
+svg{
+  cursor: pointer;
+}
+.buttons_container{
+    position: fixed;
+    display: flex;
+    bottom: 1.5rem;
+    left: 2rem;
+}
+.box{
+    flex: 1;
+    font-family: 'klavika';
+    font-weight: 200;
+    border: 3px dotted white;
+    border-right: none;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    padding: 0.5rem;
+}
+.overlay_box{
+background-color: transparent;
+width: 10px;
+height: 12px;
+}
+.white{
+background-color: white;
+width: 10px;
+height: 12px;
+}
+.box:last-child{
+    border-right: 3px dotted white;
+}
+.logo{
+    width: 100px;
+    height: 100px;
+    position: fixed;
+    z-index: 1;
+    bottom: 1.5rem;
+    right: 2rem;
+}
+
+.left,.right{
+    float: left;
+    position: fixed;
+    top: 50%;
+    z-index: 2;
+    width: 30px;
+    height: 30px;
+    transition: 0.5s;
+    box-shadow: -3px 3px 0 white;
+    cursor: pointer;
+}
+.left{
+    transform: rotate(45deg);
+    left: 2rem;
+    
+
+}
+.right{
+    transform: rotate(225deg);
+    right: 2rem;
+}
+
+
+@font-face {
+  font-family: "klavika";
+  src: url("./assets/font/klavika-light-webfont.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "klavika";
+  src: url("./assets/font/klavika-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "klavika";
+  src: url("./assets/font/klavika-medium-webfont.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "klavika";
+  src: url("./assets/font/klavika-bold-webfont.woff") format("woff");
+  font-weight: bolder;
+  font-style: normal;
+}
+
+/* MEDIA QUERIES */
+@media all and (max-width:1570px) {
+  .footer{
+    left: calc(74%);
+    top: calc(45%);
+    width: 80%;
+  }
+  article ul{
+    position: absolute;
+    top: calc(40% + 10px);
+    right: calc(2rem + 40px);
+    display: none;
+  }
+}
+@media all and (max-width:1000px) {
+  .footer{
+    width: 100%;
+    top: calc(40%);
+    left: calc(50%);
+    display: none;
+  }
+  article ul{
+    position: absolute;
+    top: calc(40% + 10px);
+    right: calc(2rem + 40px);
+    display: none;
+  }
+}
+
+
+@media all and (max-width:420px) {
+
+  .title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    top: 5.5rem;
+    left: 0;
+    text-shadow: 2px 2px 4px #1d1c1c;
+  }
+  .buttons_container{
+    display: none;
+    transition: all 0.5s ease;
+  }
+    .step{
+      text-align: center;
+      bottom: 0.1rem;
+      left:1rem
+  }
+  .footer{
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+@media all and (max-width:520px) {
+  .step{
+    width: 50%;
+  }
+  .title{
+    padding-left: 2rem;
+  }
+}
+
+
+
